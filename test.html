@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Arcade Projects | Digital Portfolio</title>
+    <link rel="icon" type="image/png" href="pp (2).png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050505;
+            --card-bg: #0a0a0a;
+            --accent: #00ffcc;
+            --accent-glow: #ff00ff;
+            --text: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.9);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Cyberpunk Navbar — fully responsive */
+        .cyberpunk-navbar {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            width: 100%;
+        }
+
+        .cyberpunk-logo {
+            color: var(--text);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link-custom {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7) !important;
+            transition: 0.3s;
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--accent) !important;
+            text-shadow: 0 0 5px rgba(0,255,204,0.5);
+        }
+
+        /* Mobile menu button */
+        .menu-toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            background: rgba(0,255,204,0.1);
+            padding: 6px 16px;
+            border-radius: 40px;
+            transition: 0.3s;
+            border: 1px solid rgba(0,255,204,0.3);
+        }
+        
+        .menu-toggle-btn:hover {
+            background: rgba(0,255,204,0.2);
+        }
+
+        /* Navigation links container */
+        .cyberpunk-nav-links {
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        
+        @media (max-width: 991px) {
+            .cyberpunk-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #000000ee;
+                backdrop-filter: blur(20px);
+                padding: 1.8rem 1.5rem;
+                text-align: center;
+                gap: 1.2rem !important;
+                border-bottom: 1px solid rgba(0,255,204,0.2);
+                z-index: 999;
+            }
+            .cyberpunk-nav-links.active {
+                display: flex;
+            }
+            .nav-link-custom {
+                font-size: 0.85rem;
+                padding: 0.6rem 0;
+            }
+        }
+
+        /* Editorial Header — mobile friendly */
+        .editorial-header {
+            margin-bottom: 2rem;
+        }
+        
+        .editorial-header p {
+            color: var(--accent);
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .editorial-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(2.8rem, 12vw, 6rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Project Card — perfect on mobile */
+        .project-card {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: transform 0.5s cubic-bezier(0.2, 0.95, 0.4, 1), box-shadow 0.4s;
+            height: 400px;
+            cursor: pointer;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .project-card {
+                height: 380px;
+                border-radius: 24px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .project-card {
+                height: 360px;
+            }
+            .project-overlay {
+                padding: 1.8rem !important;
+            }
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Bento-Style Overlay — smooth mobile interactions */
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.92) 5%, rgba(0,0,0,0.4) 40%, transparent 75%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem 1.8rem;
+            transition: all 0.45s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            transform: translateY(0);
+            transition: 0.2s;
+        }
+        
+        @media (max-width: 576px) {
+            .project-title {
+                font-size: 1rem;
+            }
+        }
+
+        .project-desc {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all 0.4s ease 0.08s;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-card:hover .project-desc {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-project {
+            background: white;
+            border: none;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 1.5px;
+            padding: 0.7rem 1.4rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            text-decoration: none;
+            width: fit-content;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all 0.4s ease 0.15s;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-project:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .project-card:hover .btn-project {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* For touch devices: make overlay interactive on tap */
+        @media (hover: none) and (pointer: coarse) {
+            .project-card:active .project-desc,
+            .project-card:active .btn-project {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .project-card:active .project-overlay {
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(6px);
+            }
+        }
+
+        /* grid spacing improvement */
+        .row.g-4 {
+            --bs-gutter-y: 1.8rem;
+            --bs-gutter-x: 1.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .row.g-4 {
+                --bs-gutter-y: 1.2rem;
+                --bs-gutter-x: 1rem;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
+        /* footer / spacing */
+        .mt-6 {
+            margin-top: 4rem;
+        }
+        
+        .letter-spacing-2 {
+            letter-spacing: 3px;
+        }
+        
+        /* remove double duplicate entries safety */
+        .no-duplicate {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="cyberpunk-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="cyberpunk-logo">ARCADE</div>
+        <div class="cyberpunk-nav-links d-lg-flex gap-4 gap-lg-4" id="navLinks">
+            <a href="https://arcade.name.ng/" class="nav-link-custom text-decoration-none">HOME</a>
+            <a href="https://arcade.name.ng/" class="nav-link-custom text-decoration-none">PROJECTS</a>
+            <a href="https://gigx267.github.io/Arcade-Security-/" class="nav-link-custom text-decoration-none">SECURITY</a>
+            <a href="https://arcade.name.ng/About.html" class="nav-link-custom text-decoration-none">ABOUT</a>
+        </div>
+        <div class="d-lg-none menu-toggle-btn" id="mobileMenuBtn">
+            MENU
+        </div>
+    </div>
+</nav>
+
+<div class="container py-4 py-md-5">
+    <header class="editorial-header text-center mb-4 mb-md-5">
+        <p class="text-uppercase small" style="color: var(--accent); letter-spacing: 5px; font-weight: 500;"> WE BUILD DIGITAL PRODUCTS THAT DEFINE INDUSTRIES</p>
+        <h1>Our <br>Works.</h1>
+        <p class="mt-3" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.65); font-size: 0.85rem;">View our latest projects — premium digital experiences trusted by industry leaders.</p>
+    </header>
+
+    <div class="row g-4">
+        <!-- Theatre Ariel -->
+        
+
+        <!-- Dotty Music -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/44063367/file/original-01e2283dd44d528329d8ea0e60820fd5.jpg?resize=2048x2395&vertical=center" alt="Dotty Music Foundation">
+                <div class="project-overlay">
+                    <h3 class="project-title">Dotty Music</h3>
+                    <p class="project-desc">Empowering the next generation of talent through a vibrant, community-focused music portal.</p>
+                    <a href="https://dottymusicfoundation.org/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/0f/9f/47/0f9f470f35917be8c64400561141e39f.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Abuja Protocol Academy </h3>
+                    <p class="project-desc">Nigeria’s leading institution focused on professional protocol, etiquette, and soft skills training. 
+                        It aims to bridge the gap in these crucial areas for government officials,
+                        business professionals, the hospitality sector, and youth leaders </p>
+                    <a href="https://abujaprotocolacademy.com.ng/index.html" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/90/18/6b/90186b025cad9728dd0398a8872d89fe.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Nuway Power Systems   </h3>
+                    <p class="project-desc"> trusted provider of integrated power and electrical solutions. We specialize in solar and inverter systems, electrical installations, and smart technologies tailored for modern living and business operations.     </p>
+                    <a href="http://NuwayPowerSystems.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/d6/38/1c/d6381c8fcc096599fc8ccc3ae1e4d1ec.jpg " alt="Pesewani Tech">
+                <div class="project-overlay">
+                    <h3 class="project-title">Pesewani Tech</h3>
+                    <p class="project-desc">Futuristic tech infrastructure portal focusing on ICT and digital security.</p>
+                    <a href="https://pesewani.tech/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mya Homes & Suites -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/94/e3/c5/94e3c59095b3d007fd65a87a0eb1fe18.jpg" alt="Mya Homes">
+                <div class="project-overlay">
+                    <h3 class="project-title">Mya Homes & Suites</h3>
+                    <p class="project-desc">Luxury hospitality founded on the principle that luxury should be felt, not just seen.</p>
+                    <a href="https://myahomessuites.com.ng/index.html" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/94/03/85/940385fdb2f0410460d52890b03bc598.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Orovie Hospitality </h3>
+                    <p class="project-desc"> Orovie Hospitality Institute was established to bridge the gap between traditional service and international luxury standards. </p>
+                    <a href=" https://www.oroviehospitality.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/a6/97/e7/a697e7f6718c93ebd8bbc5a3aac53110.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Arigain Ventures     </h3>
+                    <p class="project-desc"> revolutionizing the agricultural sector with cutting-edge technology, sustainable practices, and global supply chain solutions that empower farmers and nourish communities worldwide.     </p>
+                    <a href="https://agrigain.com.ng/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/a7/37/92/a737921f104d75c6422c7adda947973e.jpg " alt="Her Study Network">
+                <div class="project-overlay">
+                    <h3 class="project-title">Her Study Network     </h3>
+                    <p class="project-desc"> Her Study Network is an elegant sanctuary where women gather to study Scripture, pray with intention, and bring faith into daily life. Our story is built on love in action and hope in every gift.     </p>
+                    <a href="http://herstudynetwork.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Celeste Suites -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/06/ab/ba/06abbadd3072527f0252f6ba7f2a5c2d.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Celeste Suites</h3>
+                    <p class="project-desc">Luxury hospitality UI designed for seamless bookings and high-end guest experiences.</p>
+                    <a href="https://www.celestesuites.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/03/72/e3/0372e33d2c4bcdff6a1e4e323229b068.jpg " alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Mrs. Spring & Mrs. Fresh</h3>
+                    <p class="project-desc">Mr. Spring & Mrs. Fresh have come a long way. Our story began on the bustling streets of Saigon, where food brought our family together after long days of work.
+ </p>
+                    <a href="https://mrspringmrsfresh.com/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+   <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/44/53/88/445388401ac76538710c3b577d916da6.jpg " alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Precious Stones  </h3>
+                    <p class="project-desc">Since 2015, Precious Stones Contractors Ltd has delivered architectural excellence across Abuja — merging world-class craftsmanship with unwavering integrity. </p>
+                    <a href="https://gigx267.github.io/Precious-Stone-CONTRACTORS-LTD-ABUJA/index.html " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+   <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/23/06/7b/23067b4c431f4f05ba46ea07d8eaec36.jpg " alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">  Gracia Lwanzo Kasongo</h3>
+                    <p class="project-desc">Gracia Lwanzo Kasongo, born in the Democratic Republic of Congo and now based in the Netherlands. I create from lived experience and my expertise in art diplomacy.
+
+At the centre of my work is the African Adinkrahene symbol. It is an emblem of leadership and authority, known as the “chief” of Adinkra symbols. Its circular form appears in every painting—a quiet assertion of strength, presence, and inner sovereignty.</p>
+                    <a href="https://gigx267.github.io/Visual-Artist-GRACIA/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/e4/53/de/e453de5ef0bfa0d80646603df23f8479.jpg " alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">IcebyFlexzy </h3>
+                    <p class="project-desc">Every piece of jewelry tells a story, and we strive to curate a collection that embodies both timeless classics and contemporary designs,  </p>
+                    <a href="https://gigx267.github.io/icebyflexzy-and-officialmatt_co/index.html" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ 
+
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/55/3d/99/553d9902e1b8fb71e5f69f4e83306c2c.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Freka Farms </h3>
+                    <p class="project-desc"> food supply chain and logistics solution — from farming, processing, to distribution of agricultural products to both individuals and corporate clients. </p>
+                    <a href="https://frekafarm.com.ng/index.html" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/4f/9d/82/4f9d825684ce2418d8f0e96d5001c3ce.jpg" alt="Brand North">
+                <div class="project-overlay">
+                    <h3 class="project-title">ZPYU</h3>
+                    <p class="project-desc">We care for your health
+before illness occurs.
+General medicine combined with modern preventive & metabolic care. </p>
+                    <a href="https://www.zpyu.de " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brand North -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/ee/87/19/ee87195eb9f1b6562acae4854e7c3baa.jpg" alt="Brand North">
+                <div class="project-overlay">
+                    <h3 class="project-title">Brand North</h3>
+                    <p class="project-desc">Strategic brand identity and digital presence for high-growth Canadian ventures.</p>
+                    <a href="https://brandnorth.ca/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/4d/e9/04/4de904a703faa0d36a7cafcdbfb39baf.jpg" alt="Brand North">
+                <div class="project-overlay">
+                    <h3 class="project-title">Inseekan </h3>
+                    <p class="project-desc"> 
+Experience the art of bespoke shoemaking with Inseekan Leather. Each pair is meticulously handcrafted in Abuja using premium materials and traditional techniques.</p>
+                    <a href="https://www.inseekan.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+            
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/39/6a/38/396a3881e940c6c09c8f0c4b27881b55.jpg" alt="Celeste Suites">
+                <div class="project-overlay">
+                    <h3 class="project-title">Exclusive
+Textile Hub    </h3>
+                    <p class="project-desc">High-quality textiles for women, men, and Asoebi, offering a stunning selection of ready-to-wear outfits and expert tailoring services to bring your style visions to life.      </p>
+                    <a href="http://exclusivetextilehub.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Health4yu -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/6f/91/d8/6f91d885d90cedd93568fb8522f4528a.jpg" alt="Health4yu">
+                <div class="project-overlay">
+                    <h3 class="project-title">Health4yu</h3>
+                    <p class="project-desc">A comprehensive wellness ecosystem bridging healthcare providers and global patients.</p>
+                    <a href="https://www.health4yu.org/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sweep TV Nigeria -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/21209434/file/original-a838f9cd19b594d69d02d54eadfde959.jpg?resize=752x564&vertical=center" alt="Sweep TV Nigeria">
+                <div class="project-overlay">
+                    <h3 class="project-title">Sweep TV Nigeria</h3>
+                    <p class="project-desc">Premier digital media platform with comprehensive news coverage and grassroots politics focus.</p>
+                    <a href="https://sweeptvnigeria.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+     <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/15969446/file/original-6359ab82e88dd2336fcb887f76f6f04b.png?resize=1200x848&vertical=center" alt="Dine & Pack">
+                <div class="project-overlay">
+                    <h3 class="project-title">Dine & Pack</h3>
+                    <p class="project-desc">Streamlined digital logistics and ordering for the modern culinary industry.</p>
+                    <a href="https://www.dineandpack.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pesewani Tech -->
+      
+        <!-- Arcade Security -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/cd/6a/ca/cd6aca5a2b8b0f6185e1c9973121946f.jpg" alt="Arcade Security">
+                <div class="project-overlay">
+                    <h3 class="project-title">Arcade Security</h3>
+                    <p class="project-desc">Mission-critical cybersecurity infrastructure and threat monitoring systems.</p>
+                    <a href="https://gigx267.github.io/Arcade-Security-/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Signature -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/16124814/file/original-732dd0094070d5b60c262d5045875a91.jpg?resize=2048x965&vertical=center" alt="Luxury Signature">
+                <div class="project-overlay">
+                    <h3 class="project-title">Luxury Signature</h3>
+                    <p class="project-desc">Editorial-style platform for high-end lifestyle services and premium concierge.</p>
+                    <a href="http://www.luxurysignature.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nura Help -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/7919720/file/original-88c02ba73ab163f807dfc12a02bf5cbf.jpg?resize=1504x1128&vertical=center" alt="Nura Help">
+                <div class="project-overlay">
+                    <h3 class="project-title">Nura Help</h3>
+                    <p class="project-desc">Humanitarian digital hub designed to scale community support and NGO outreach.</p>
+                    <a href="https://nurahelp.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+  <!-- Luxury Signature -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/49/76/03/4976039dfd77d8d2eaab2e0203e876f3.jpg" alt="Women In Business ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Women in Business and Politics</h3>
+                    <p class="project-desc">Platform for empowering women in leadership roles.</p>
+                    <a href="https://www.womeninbusinessandpolitics.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nura Help -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/7919720/file/original-88c02ba73ab163f807dfc12a02bf5cbf.jpg?resize=1504x1128&vertical=center" alt="Nura Help">
+                <div class="project-overlay">
+                    <h3 class="project-title">Velvet Moon</h3>
+                    <p class="project-desc">Experience an unforgettable night out with beautiful interiors, premium drinks, and delicious food. .</p>
+                    <a href="https://velvetmoon.ng/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Copsa KC -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/15519623/file/original-717d42c11d3b48c2baacc9da9cbc16aa.jpg?resize=2048x1536&vertical=center" alt="Copsa KC">
+                <div class="project-overlay">
+                    <h3 class="project-title">Copsa KC</h3>
+                    <p class="project-desc">Digital strategy and community branding for Kansas City-based social initiatives.</p>
+                    <a href="https://www.copsakc.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOA Perfumes -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/ed/65/1a/ed651a257983b185f98c89526c4f39cf.jpg" alt="DOA Perfumes">
+                <div class="project-overlay">
+                    <h3 class="project-title">DOA Perfumes</h3>
+                    <p class="project-desc">High-glimmer e-commerce experience for luxury scents and avant-garde cosmetics.</p>
+                    <a href="https://doaperfumescosmetics.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+  <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/b4/3b/5a/b43b5a0e2a6bd80615d8e1794cb0adee.jpg " alt="DOA Perfumes">
+                <div class="project-overlay">
+                    <h3 class="project-title">Mark the Jeweller</h3>
+                    <p class="project-desc">Elegant jewelry store specializing in bespoke designs and timeless elegance.</p>
+                    <a href="https://gigx267.github.io/Mark-The-Jeweller-Demo-/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Aurelum Group -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/42505587/file/original-3ad0563482e1fdcfce3e6e8d1478b844.jpg?format=webp&resize=640x480&vertical=center" alt="Aurelum Group">
+                <div class="project-overlay">
+                    <h3 class="project-title">Aurelum Group</h3>
+                    <p class="project-desc">Corporate powerhouse portal for global investment and strategic consultancy.</p>
+                    <a href="https://aurelumgroup.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src=" https://i.pinimg.com/1200x/11/8e/4e/118e4e5e4413371e91d0abe3daf510bc.jpg" alt="Aurelum Group">
+                <div class="project-overlay">
+                    <h3 class="project-title"> Pegasus </h3>
+                    <p class="project-desc">Pegasus is dedicated to helping people find their ideal homes in Abuja.you can seamlessly browse our extensive and carefully curated collection of verified properties .</p>
+                    <a href="https://pegasus.com.ng/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Dine & Pack -->
+      <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/7c/36/53/7c3653d798c112ec2c3e4695b4819393.jpg" alt="Aurelum Group">
+                <div class="project-overlay">
+                    <h3 class="project-title">FOLYN Interiors  </h3>
+                    <p class="project-desc">Luxury interior design redefining spaces through timeless elegance. </p>
+                    <a href="https://gigx267.github.io/Folyn-Interior-Studio-/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/16/f2/1d/16f21d93b0b614987c8fd796e9447aaf.jpg" alt="Pegagus ">
+                <div class="project-overlay">
+                    <h3 class="project-title">IWANZOO </h3>
+                    <p class="project-desc">At the centre of my work is the African Adinkrahene symbol. It is an emblem of leadership and authority, known as the “chief” of Adinkra symbols </p>
+                    <a href="https://iwanzoo.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+         <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/22388536/file/original-2ee067e7cd1b141922b95335b27a1f38.gif" alt="Pegagus ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Wonder Mouth  </h3>
+                    <p class="project-desc"> Tasty Meals In Abuja Fresh Fast and Just For You </p>
+                    <a href="https://wondermouth.com.ng/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src=" https://i.pinimg.com/1200x/69/15/1b/69151bdb8d7f747988ccefa6ffc282ec.jpg" alt="Pegagus ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Pegasus </h3>
+                    <p class="project-desc">Pegasus is dedicated to helping you can seamlessly browse our extensive and carefully curated collection of verified properties </p>
+                    <a href="https://pegasus.com.ng/index.html " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+         <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/236x/b6/4d/2d/b64d2d992a71a290d1663d6b2ed03b19.jpg" alt="Pegagus ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Lively Hope</h3>
+                    <p class="project-desc"> Rev. Benson Ezem had a life-altering encounter with Jesus Christ. What began as an intimate, personal relationship </p>
+                    <a href="https://livelyhope.com.ng/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Black Limitless -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/17905713/file/original-2efe55d943cb4ec5e0fac7563ab37640.jpg?crop=165x116-1391x1036&format=webp&resize=640x480&vertical=center" alt="Black Limitless">
+                <div class="project-overlay">
+                    <h3 class="project-title">Black Limitless</h3>
+                    <p class="project-desc">Premium brand strategy for modern leaders and digital-first creative ventures.</p>
+                    <a href="https://www.blacklimitless.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/20273225/file/original-3a75afa65e174f3e6f65dd941f884a65.png?resize=2048x1320" alt="Theatre Ariel">
+                <div class="project-overlay">
+                    <h3 class="project-title">Theatre Ariel</h3>
+                    <p class="project-desc">A professional cultural platform designed with high-authority branding and a modern user interface.</p>
+                    <a href="https://www.theatreariel.org/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Trinity Medical -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/27482203/file/original-e865b67abfa86eca6416d9ec87d6d409.gif" alt="Trinity Medical">
+                <div class="project-overlay">
+                    <h3 class="project-title">Trinity Medical</h3>
+                    <p class="project-desc">Reliable, mission-critical interface for medical logistics and emergency transport.</p>
+                    <a href="https://trinitymedicalcourier.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mind Way -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/42509626/file/original-c902c83a28d7e291735c215d55ab16c8.jpg?format=webp&resize=640x480&vertical=center" alt="Mind Way">
+                <div class="project-overlay">
+                    <h3 class="project-title">Mind Way</h3>
+                    <p class="project-desc">Tech-centric retail experience for the high-demand mobile electronics market.</p>
+                    <a href="https://www.mindwaymobiles.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Osaronno -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src=" https://i.pinimg.com/736x/04/85/2c/04852c4f060ab5065935c9d982569c76.jpg" alt="Osaronno">
+                <div class="project-overlay">
+                    <h3 class="project-title">Osaronno</h3>
+                    <p class="project-desc">Editorial-inspired e-commerce layout for avant-garde fashion and luxury style.</p>
+                    <a href="https://www.osaronnofashion.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health4Yu DE -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/00/b1/e6/00b1e6d4fb2f90ea10e231fcf704da9a.jpg " alt="Health4Yu DE">
+                <div class="project-overlay">
+                    <h3 class="project-title">Health4Yu DE</h3>
+                    <p class="project-desc">International medical directory optimized for the European healthcare landscape.</p>
+                    <a href="https://www.health4yu.de/index.html" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paschal Ugwu -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/4474859/file/original-934bd1c3b37d738685c0b36c6f1499bd.jpg?resize=2048x2048&vertical=center" alt="Paschal Ugwu">
+                <div class="project-overlay">
+                    <h3 class="project-title">Paschal Ugwu</h3>
+                    <p class="project-desc">Minimalist fine-art portfolio showcasing creative direction and photography.</p>
+                    <a href="https://paschalugwu.com/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 100 -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/71/15/dd/7115dd4885023bf8c2bc8810b4de8703.jpg " alt="Project 100">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 100</h3>
+                    <p class="project-desc">Scaling digital literacy and creative empowerment through design-driven initiatives.</p>
+                    <a href="https://www.project100.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/f7/91/ef/f791efb77515c708ae70c1b186a91a3a.jpg" alt="Project 100">
+                <div class="project-overlay">
+                    <h3 class="project-title"> Dainel Angels </h3>
+                    <p class="project-desc"> Dedicated team of professionals by your side, working diligently to optimise your OnlyFans account and foster stronger relationships with your fans.</p>
+                    <a href="https://gigx267.github.io/DAINEL-Angels-Lauch-/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Aso Clothing -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/ee/59/44/ee5944b16dfd64bf934cbee8bcd9e7ac.jpg" alt="Aso Clothing">
+                <div class="project-overlay">
+                    <h3 class="project-title">Aso Clothing</h3>
+                    <p class="project-desc">Modern retail storefront blending traditional Nigerian heritage with street style.</p>
+                    <a href="https://asoshop.co/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+<div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/5a/09/8b/5a098b325d2c6e57c84f3f3d7824640f.jpg" alt="Chidimma Nwafor">
+                <div class="project-overlay">
+                    <h3 class="project-title">Grey Medical </h3>
+                    <p class="project-desc">Founded by Dr. Eleanor Greyson, a pioneer in women's health, the hospital quickly becomes a trusted community resource. </p>
+                    <a href="https://greysonmedical.online/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+        <!-- Princess Store -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/18046533/file/original-c918185775689651d58882c0e5ea1ce9.jpg?format=webp&resize=640x480&vertical=center" alt="Princess Store">
+                <div class="project-overlay">
+                    <h3 class="project-title">Princess Store</h3>
+                    <p class="project-desc">Digital transformation for luxury retail, converting physical inventory to online systems.</p>
+                    <a href="https://www.princess-shop-abuja.name.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pryme Konet -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/18/94/1e/18941e57fa79349b83ecef7913adbecc.jpg" alt="Pryme Konet">
+                <div class="project-overlay">
+                    <h3 class="project-title">Pryme Konet</h3>
+                    <p class="project-desc">High-authority media production hub for professional cinematography and visuals.</p>
+                    <a href="https://www.prymekonetproduction.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stretchbuy -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/3794986/file/original-19f212f0d82d898d1c5d2b893eee1529.png?format=webp&resize=640x480&vertical=center" alt="Stretchbuy">
+                <div class="project-overlay">
+                    <h3 class="project-title">Stretchbuy</h3>
+                    <p class="project-desc">Redefining retail access through flexible, design-forward e-commerce solutions.</p>
+                    <a href="https://stretchbuy.com.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chidimma Nwafor -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/43765465/file/original-639553e5a78a351f275617c6f3c107e5.jpg?resize=1504x1128&vertical=center" alt="Chidimma Nwafor">
+                <div class="project-overlay">
+                    <h3 class="project-title">Chidimma Nwafor</h3>
+                    <p class="project-desc">Premium professional portfolio emphasizing high-vibe personal branding.</p>
+                    <a href="https://chidimmanwafor.name.ng/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/f3/26/4e/f3264efcf5abbfdf404b90f318d3ecc3.jpg " alt="PJ Realty ">
+                <div class="project-overlay">
+                    <h3 class="project-title"> The Home Feel   </h3>
+                    <p class="project-desc">We've got you covered! Our place is all about relaxation and having a good time. From cozy rooms to amazing experiences, we've got everything you need to unwind and recharge </p>
+                    <a href="https://gigx267.github.io/The-HomeFeel/  " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/18/04/68/1804688974c10cb2a2b1ebd9673fc2b5.jpg" alt="PJ Realty ">
+                <div class="project-overlay">
+                    <h3 class="project-title"> PJ Realty </h3>
+                    <p class="project-desc">PJ Realty is a leading real estate agency dedicated to providing exceptional services for buying, selling, and renting apartments and houses in Ghana </p>
+                    <a href="https://gigx267.github.io/PJ-REALTY-2025/ " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/1a/89/4d/1a894dd5a5de911b6b9de91c92d3d3cb.jpg " alt="PJ Realty ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Cosmo Base  </h3>
+                    <p class="project-desc">Architectural and Civil Engineering Consultants exceptional services  </p>
+                    <a href="https://gigx267.github.io/COSMO-BASE-CONSORTIUM-LIMITE/  " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/77/6a/a9/776aa9de5d32a8c3304c7165a102c09a.jpg " alt="Signora ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Signora Salon  </h3>
+                    <p class="project-desc">Beauty Care Center
+Our Team of highly talented stylists are dedicated to giving you the best salon experience. </p>
+                    <a href="https://gigx267.github.io/June-23-Signora-Salon-Design-/  " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+ <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://i.pinimg.com/736x/49/a4/bf/49a4bff448b03498707d817d5fac7236.jpg" alt="Signora ">
+                <div class="project-overlay">
+                    <h3 class="project-title">Queen B   </h3>
+                    <p class="project-desc">Where Beauty Meets Confidence
+Our team of skilled and experienced stylists is dedicated to providing a wide range of hair services to cater to your unique needs
+ </p>
+                    <a href="https://gigx267.github.io/QUEEN-B-UNISEX-HAIR-LOUNGE/   " class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        
+        <!-- Digital Rubki Cube (final) -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="project-card">
+                <img loading="lazy" src="https://cdn.dribbble.com/userupload/21855979/file/original-6e2e0e5b41d13c1812949a1ff52a8442.jpg?format=webp&resize=640x480&vertical=center" alt="Rubki Cube">
+                <div class="project-overlay">
+                    <h3 class="project-title">Rubki Cube</h3>
+                    <p class="project-desc">Creative coding experiment demonstrating advanced interactive logic and design.</p>
+                    <a href="https://gigx267.github.io/Digital-Rubki-Cube/" class="btn-project" target="_blank" rel="noopener">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Toggle mobile menu with smooth behavior + accessibility
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    function toggleMenu() {
+        if (navLinks) {
+            navLinks.classList.toggle('active');
+        }
+    }
+    
+    if (menuBtn) {
+        menuBtn.addEventListener('click', toggleMenu);
+    }
+    
+    // Close mobile menu after clicking a link (better UX)
+    const navItems = document.querySelectorAll('.nav-link-custom');
+    navItems.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 991 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+    
+    // optional: fix for any card hover on touch to avoid glitches
+    if ('ontouchstart' in window) {
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', function(e) {
+                // just triggers visual feedback for mobile
+                this.style.transition = 'all 0.2s';
+            });
+        });
+    }
+</script>
+</body>
+</html>

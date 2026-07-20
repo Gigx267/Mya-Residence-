@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Residences | Mya Homes - Luxury Residences Abuja</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts: Inter & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- Premium Architecture Theme ----- */
+    body {
+      background-color: #020202;
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .gold-border {
+      border: 1px solid rgba(191, 149, 63, 0.25);
+    }
+    .gold-text {
+      color: #bf953f;
+    }
+    .text-gold-light { color: #d4af37; }
+    .bg-dark-charcoal {
+      background-color: #070707;
+    }
+    .texture-overlay {
+      background-image: radial-gradient(rgba(191, 149, 63, 0.015) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .glow-orb {
+      background: radial-gradient(circle at center, rgba(191, 149, 63, 0.06) 0%, transparent 70%);
+    }
+    .room-overlay {
+      background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #bf953f 0%, #d4af37 100%);
+      color: #000000;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(191, 149, 63, 0.3);
+    }
+    
+    /* ----- Performant Scroll Animations ----- */
+    .will-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="antialiased texture-overlay">
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
+  <header class="fixed w-full z-50 bg-black/85 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="tracking-wider serif transition group">
+        <span class="text-2xl font-semibold text-gold-light tracking-widest">MYA</span>
+        <span class="text-white font-light text-[10px] tracking-[0.35em] block -mt-1 opacity-80 group-hover:text-gold-light transition-colors">HOMES & SUITES</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center space-x-10 text-xs font-medium tracking-[0.2em] uppercase">
+        <a href="index.html" class="text-gray-400 hover:text-white transition-colors relative py-2 group">Home<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="about.html" class="text-gray-400 hover:text-white transition-colors relative py-2 group">Our Story<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="rooms.html" class="text-gold-light relative py-2">Residences<span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light"></span></a>
+        <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors relative py-2 group">Contact<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+      </nav>
+
+      <a href="https://wa.me/2349019238653" target="_blank" class="btn-gold px-6 py-2.5 rounded-md text-xs transition-all tracking-widest uppercase flex items-center gap-2">
+        <span>Book Stay</span> <i class="fa-brands fa-whatsapp text-sm"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO INTRO ===== -->
+  <section class="relative pt-36 pb-12 md:pt-44 md:pb-16 overflow-hidden bg-cover bg-center" style="background-image: url('./p\ \(13\).jpeg');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] glow-orb opacity-60 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <span class="inline-block text-[10px] font-bold tracking-[0.3em] text-gold-light uppercase bg-gold-text/5 px-4 py-1.5 rounded-full gold-border">Curated Sanctuaries</span>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mt-6 serif leading-tight tracking-wide">
+        Our <span class="text-gold-light italic font-normal">Signature</span> Residences
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm md:text-base font-light leading-relaxed tracking-wide">
+        Impeccably framed living spaces combining contemporary architectural mastery with high-grade security assets across Abuja's elite enclaves.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== RESIDENCES GRID ===== -->
+  <section class="py-8 pb-28 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Mayfair Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (1).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Mayfair Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+            <span class="absolute top-4 right-4 bg-gold-light text-black text-[9px] font-bold px-3 py-1 rounded tracking-widest uppercase">Elite Masterpiece</span>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Mayfair Suite</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-crown mr-1"></i> Diplomatic Class</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦185,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">Ultra-premium residential masterpiece. Architecturally tailored for diplomats and corporate titans requiring maximum structural layout scale and strict custom protection.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-shield-halved text-gold-light mr-1.5"></i>Tactical Security</span>
+            <span><i class="fa-solid fa-kitchen-set text-gold-light mr-1.5"></i>Chef Kitchen</span>
+            <span><i class="fa-solid fa-square-parking text-gold-light mr-1.5"></i>Private Bays</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Mayfair%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Westminister Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (9).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Westminster Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Westminster</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-gem mr-1"></i> Stately Executive</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦139,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">Stately architectural compositions unified perfectly with clean minimalist interior alignments. Offers high-level internal volume optimization and deep rest attributes.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-bolt text-gold-light mr-1.5"></i>Dual Grid Power</span>
+            <span><i class="fa-solid fa-wifi text-gold-light mr-1.5"></i>Fibre Internet</span>
+            <span><i class="fa-solid fa-tv text-gold-light mr-1.5"></i>Premium Media</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Westminster%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Kensington Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (2).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Kensington Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Kensington</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-cube mr-1"></i> Geometric Luxury</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦120,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">Highly private residential space located cleanly outside urban transit lines. Structured beautifully with tailored configurations meant for extended executive stays.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-bell-concierge text-gold-light mr-1.5"></i>Concierge Assist</span>
+            <span><i class="fa-solid fa-vault text-gold-light mr-1.5"></i>In-Room Safe</span>
+            <span><i class="fa-solid fa-snowflake text-gold-light mr-1.5"></i>Climate Control</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Kensington%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Camden Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (2).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Camden Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Camden Suite</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-briefcase mr-1"></i> Corporate Retreat</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦120,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">A sharp residential workspace framework crafted explicitly for elite tech profiles, remote operators, and cross-border consultants.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-sparkles text-gold-light mr-1.5"></i>Daily Valet</span>
+            <span><i class="fa-solid fa-desktop text-gold-light mr-1.5"></i>Workstation</span>
+            <span><i class="fa-solid fa-wifi text-gold-light mr-1.5"></i>Dedicated Line</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Camden%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Knightsbridge Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (4).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Knightsbridge Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Knightsbridge</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-compass mr-1"></i> Minimal Enclave</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦120,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">High-contrast modern layouts meeting uncompromised absolute security provisions. Designed purely for maximum personal escape.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-user-shield text-gold-light mr-1.5"></i>Armed Sentry</span>
+            <span><i class="fa-solid fa-dumbbell text-gold-light mr-1.5"></i>Clubhouse Gym</span>
+            <span><i class="fa-solid fa-coffee text-gold-light mr-1.5"></i>Espresso Bar</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Knightsbridge%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Hampstead Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="p (7).mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Hampstead Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Hampstead</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-leaf mr-1"></i> Balanced Comfort</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦98,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">Curated modern architectural layout optimizing structural airflow and balanced natural illumination. Quiet execution throughout.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-bolt text-gold-light mr-1.5"></i>24hr Inverters</span>
+            <span><i class="fa-solid fa-door-closed text-gold-light mr-1.5"></i>Secure Access</span>
+            <span><i class="fa-solid fa-water text-gold-light mr-1.5"></i>Water Plant</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Hampstead%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+      <!-- Soho Suite -->
+      <div class="will-animate bg-dark-charcoal/60 border border-white/5 rounded-xl overflow-hidden hover:border-gold-light/30 transition-all duration-500 group flex flex-col justify-between">
+        <div>
+          <div class="relative overflow-hidden h-72">
+            <video src="./ph.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline aria-label="Soho Suite"></video>
+            <div class="absolute inset-0 room-overlay"></div>
+          </div>
+          <div class="p-7">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold serif text-white tracking-wide">Soho Suite</h3>
+                <p class="text-[11px] text-gold-light mt-1 font-medium tracking-wider uppercase"><i class="fa-solid fa-feather mr-1"></i> Immaculate Entry</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-gold-light font-mono">₦90,000</span>
+                <span class="text-[10px] text-gray-400 block tracking-wider uppercase mt-0.5">/ night</span>
+              </div>
+            </div>
+            <p class="text-gray-400 mt-4 text-xs leading-relaxed font-light">Immaculate entry-tier luxury, highly optimized with standard modern spatial provisions. A perfect welcome blueprint into the Mya collective.</p>
+          </div>
+        </div>
+        <div class="px-7 pb-7">
+          <div class="pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-gray-400 font-light">
+            <span><i class="fa-solid fa-wifi text-gold-light mr-1.5"></i>Free Wi-Fi</span>
+            <span><i class="fa-solid fa-bell text-gold-light mr-1.5"></i>Front Desk</span>
+            <span><i class="fa-solid fa-mug-hot text-gold-light mr-1.5"></i>Complimentary</span>
+          </div>
+          <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20am%20interested%20in%20inquiring%20about%20the%20Soho%20Suite." target="_blank" class="mt-6 flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:border-gold-light/40 hover:bg-gold-light/10 px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 w-full justify-center font-medium">
+            <i class="fa-brands fa-whatsapp text-sm text-gold-light"></i> Secure Residence
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== AMENITIES BLUEPRINT ===== -->
+  <section class="bg-dark-charcoal/30 py-24 border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-20 will-animate">
+        <span class="text-gold-light tracking-[0.25em] uppercase font-bold text-[10px]">Unified Experience Matrix</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 serif tracking-wide">Standard <span class="text-gold-light italic font-normal">Premium</span> Integration</h2>
+        <p class="text-gray-400 mt-4 text-xs md:text-sm font-light leading-relaxed tracking-wide">Every single reservation incorporates our base-tier luxury hospitality framework automatically — completely absolute.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="will-animate text-center bg-dark-charcoal/50 border border-white/5 rounded-xl p-8 hover:border-gold-light/20 transition-all duration-300">
+          <i class="fa-solid fa-charging-station text-3xl text-gold-light mb-4 opacity-90"></i>
+          <h4 class="font-medium text-xs text-white uppercase tracking-widest">Uninterrupted Power</h4>
+        </div>
+        <div class="will-animate text-center bg-dark-charcoal/50 border border-white/5 rounded-xl p-8 hover:border-gold-light/20 transition-all duration-300">
+          <i class="fa-solid fa-wifi text-3xl text-gold-light mb-4 opacity-90"></i>
+          <h4 class="font-medium text-xs text-white uppercase tracking-widest">Enterprise Fibre</h4>
+        </div>
+        <div class="will-animate text-center bg-dark-charcoal/50 border border-white/5 rounded-xl p-8 hover:border-gold-light/20 transition-all duration-300">
+          <i class="fa-solid fa-user-shield text-3xl text-gold-light mb-4 opacity-90"></i>
+          <h4 class="font-medium text-xs text-white uppercase tracking-widest">Sentry Protection</h4>
+        </div>
+        <div class="will-animate text-center bg-dark-charcoal/50 border border-white/5 rounded-xl p-8 hover:border-gold-light/20 transition-all duration-300">
+          <i class="fa-solid fa-dumbbell text-3xl text-gold-light mb-4 opacity-90"></i>
+          <h4 class="font-medium text-xs text-white uppercase tracking-widest">Kinetic Wellness Gym</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GLOBAL CALL TO ACTION ===== -->
+  <section class="py-24 max-w-4xl mx-auto px-6 text-center relative">
+    <div class="will-animate">
+      <span class="text-gold-light tracking-[0.25em] uppercase font-bold text-[10px]">Initiate Reservation Flow</span>
+      <h2 class="text-4xl md:text-5xl font-bold mt-4 serif leading-tight tracking-wide">
+        Your Private <span class="text-gold-light italic font-normal">Sanctuary</span> Commences Here
+      </h2>
+      <p class="text-gray-400 mt-6 text-xs md:text-sm font-light max-w-xl mx-auto leading-relaxed tracking-wide">Interface directly with our reservation team to analyze open calendar matrices, verify custom arrangements, or settle private viewings.</p>
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 text-xs font-semibold tracking-widest uppercase">
+        <a href="https://wa.me/2349019238653?text=Hi%20Mya%20Homes,%20I%20would%20like%20to%20check%20availability%20for%20my%20stay." target="_blank" class="btn-gold px-8 py-4 rounded-lg flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Connect instantly
+        </a>
+        <a href="index.html#contact" class="border border-white/10 text-white hover:border-gold-light/40 hover:bg-white/5 px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center">Message Desk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-black border-t border-white/5 text-gray-400 pt-24 pb-12 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold-light/5 rounded-full blur-[120px]"></div>
+      <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-gold-light/5 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
+      <div class="md:col-span-5">
+        <a href="index.html" class="tracking-wider serif inline-block">
+          <span class="text-2xl font-semibold text-gold-light tracking-widest">MYA</span>
+          <span class="text-white font-light text-[10px] tracking-[0.35em] block -mt-1 opacity-80">HOMES & SUITES</span>
+        </a>
+        <p class="mt-6 text-xs max-w-sm leading-relaxed font-light opacity-60 tracking-wide">Curating elite asset spaces, lifestyle residential rentals, and distinct boutique stay models within premium administrative regions in Abuja, Nigeria.</p>
+        <div class="flex space-x-4 mt-8">
+          <a href="#" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-gold-light/40 hover:text-gold-light transition-all text-xs"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/2349019238653" target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-gold-light/40 hover:text-gold-light transition-all text-xs"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-gold-light/40 hover:text-gold-light transition-all text-xs"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-3">
+        <h5 class="text-white uppercase font-bold text-[10px] tracking-[0.25em] mb-6">Navigation Architecture</h5>
+        <ul class="space-y-4 text-xs font-light tracking-wide">
+          <li><a href="about.html" class="hover:text-gold-light transition-colors flex items-center gap-2.5 opacity-80 hover:opacity-100"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Our Story</a></li>
+          <li><a href="rooms.html" class="hover:text-gold-light transition-colors flex items-center gap-2.5 opacity-80 hover:opacity-100"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Residences</a></li>
+          <li><a href="index.html#contact" class="hover:text-gold-light transition-colors flex items-center gap-2.5 opacity-80 hover:opacity-100"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="md:col-span-4">
+        <h5 class="text-white uppercase font-bold text-[10px] tracking-[0.25em] mb-6">Enclave Communications</h5>
+        <p class="text-xs font-light flex items-center gap-3 mb-3 tracking-wide opacity-80"><i class="fa-solid fa-location-dot text-gold-light w-4 text-sm"></i> Abuja, Nigeria</p>
+        <p class="text-xs font-light flex items-center gap-3 mb-6 tracking-wide opacity-80"><i class="fa-regular fa-envelope text-gold-light w-4 text-sm"></i> reservations@myahomes.com</p>
+        <a href="https://wa.me/2349019238653" target="_blank" class="inline-flex items-center gap-2 bg-white/5 hover:bg-gold-light/10 text-gold-light border border-white/10 hover:border-gold-light/40 font-medium px-5 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Wire WhatsApp Desk
+        </a>
+      </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-[11px] font-light opacity-40 relative z-10 tracking-widest">
+      <p>&copy; 2026 Mya Homes & Suites. All Rights Reserved. Engineered with precision.</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL ANIMATION SYSTEM ENGINE ===== -->
+  <script>
+    (function() {
+      const animElements = document.querySelectorAll('.will-animate');
+      if (animElements.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-visible');
+              // Unobserve once element reveals to secure hardware performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { 
+          threshold: 0.15,
+          rootMargin: "0px 0px -40px 0px"
+        });
+        animElements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
+</body>
+</html>
