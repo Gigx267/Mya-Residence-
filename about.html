@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Mya Homes & Suites - Luxury Redefined in Abuja</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts: Inter & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  
+  <style>
+    body {
+      background-color: #020202;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    
+    /* Metallic Gold Text Gradient */
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Subtle Animated Grid Background Pattern */
+    .texture-overlay {
+      background-image: linear-gradient(rgba(191, 149, 63, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(191, 149, 63, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Scroll Animation Base Engine */
+    .will-animate {
+      opacity: 0;
+      will-change: opacity, transform;
+      transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .animate-fade-up { transform: translateY(40px); }
+    .animate-fade-left { transform: translateX(-40px); }
+    .animate-fade-right { transform: translateX(40px); }
+    .animate-zoom-in { transform: scale(0.95); }
+    
+    .animate-visible {
+      opacity: 1;
+      transform: translate(0,0) scale(1);
+    }
+    .animate-delay-1 { transition-delay: 0.15s; }
+    .animate-delay-2 { transition-delay: 0.3s; }
+    .animate-delay-3 { transition-delay: 0.45s; }
+  </style>
+</head>
+<body class="antialiased texture-overlay selection:bg-[#bf953f]/30">
+
+  <!-- ===== HEADER ===== -->
+  <header class="fixed w-full z-50 bg-black/60 backdrop-blur-xl border-b border-[#bf953f]/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      <a href="index.html" class="group tracking-wider serif">
+        <span class="text-2xl font-bold tracking-widest bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] bg-clip-text text-transparent group-hover:opacity-80 transition">MYA</span>
+        <span class="text-white font-light text-[10px] tracking-[0.4em] block -mt-1 opacity-60 group-hover:opacity-90 transition">HOMES & SUITES</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center space-x-12 text-xs font-semibold tracking-[0.2em] uppercase">
+        <a href="index.html" class="text-gray-400 hover:text-white transition relative py-2 group">Home<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#bf953f] transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="about.html" class="bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] bg-clip-text text-transparent relative py-2">Our Story<span class="absolute bottom-0 left-0 w-full h-[1px] bg-[#bf953f]"></span></a>
+        <a href="room.html" class="text-gray-400 hover:text-white transition relative py-2 group">Residences<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#bf953f] transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="contact.html" class="text-gray-400 hover:text-white transition relative py-2 group">Contact<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#bf953f] transition-all duration-300 group-hover:w-full"></span></a>
+      </nav>
+
+      <a href="https://wa.me/#" target="_blank" class="relative overflow-hidden border border-[#bf953f]/60 bg-gradient-to-r from-[#bf953f] to-[#b38728] hover:from-[#d4af37] hover:to-[#bf953f] text-black px-8 py-3.5 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-xl shadow-[#bf953f]/10 hover:shadow-[#bf953f]/30 hover:-translate-y-0.5 group flex items-center gap-2">
+        <span>Book Now</span> 
+        <i class="fa-brands fa-whatsapp text-sm group-hover:rotate-12 transition-transform"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO / PAGE INTRO ===== -->
+  <section class="relative pt-44 pb-20 md:pt-56 md:pb-32 overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="./p (2).mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <!-- Ambient backlights -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#bf953f]/5 rounded-full blur-[140px] pointer-events-none"></div>
+    
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10 will-animate animate-fade-up">
+      <span class="inline-flex items-center gap-2 border border-[#bf953f]/30 bg-[#bf953f]/5 text-[#fcf6ba] text-[10px] font-bold tracking-[0.3em] uppercase px-5 py-2 rounded-full backdrop-blur-md">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#bf953f] animate-pulse"></span> About Us 
+      </span>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mt-8 serif leading-[1.15] tracking-tight">
+        The <span class="gold-gradient-text italic font-normal">Art</span> of Hospitality
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-8 text-base md:text-lg font-light leading-relaxed tracking-wide">
+        Where every detail is orchestrated to deliver an experience that feels both profoundly personal and impeccably luxurious.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== THE MYA STORY ===== -->
+  <section class="py-16 md:py-28 max-w-7xl mx-auto px-6 relative">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      
+      <div class="space-y-8 order-2 lg:order-1 will-animate animate-fade-left">
+        <div class="space-y-3">
+          <span class="text-[#bf953f] tracking-[0.25em] uppercase font-semibold text-xs flex items-center gap-3">
+            <span class="w-8 h-[1px] bg-[#bf953f]/50"></span> HOME AWAY FROM HOME 
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold serif leading-tight text-white">
+            Born from a <span class="gold-gradient-text italic font-normal">Relentless Pursuit</span> of Perfection
+          </h2>
+        </div>
+        <div class="space-y-6 text-gray-400 font-light leading-relaxed text-base">
+          <p>
+            Mya Homes & Suites was founded on a singular, unwavering belief: that every traveler
+            deserves an experience that transcends the ordinary. In a city bustling with diplomatic
+            missions, corporate headquarters, and cultural vibrancy, we saw a gap — not just for a place to sleep, 
+            but for a sanctuary that feels like home, elevated by the standards of a world-class boutique hotel.
+          </p>
+          <p>
+            Our growth has been intentional, never compromising on our core values of privacy, security, and impeccable design.
+          </p>
+          <p class="border-l-2 border-[#bf953f]/40 pl-4 italic text-gray-300">
+            Today, Mya stands as the definitive choice for diplomats, executives, and discerning global citizens who demand more than accommodation — they demand an experience curated to their exacting standards.
+          </p>
+        </div>
+      </div>
+      
+      <div class="relative order-1 lg:order-2 will-animate animate-fade-right">
+        <div class="relative z-10 rounded-2xl overflow-hidden border border-[#bf953f]/30 shadow-2xl group">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10 transition-opacity group-hover:opacity-30"></div>
+          <img src="p (4).jpeg" alt="Luxury Mya Living Space" class="w-full h-[450px] md:h-[560px] object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
+        </div>
+        <!-- Ultra-premium glowing bounding boxes -->
+        <div class="absolute -bottom-6 -left-6 w-48 h-48 border border-[#bf953f]/20 rounded-2xl -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-[#bf953f]/5 rounded-2xl blur-xl -z-10"></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ===== MISSION, VISION, VALUES ===== -->
+  <section class="bg-[#060606] py-28 border-y border-[#bf953f]/15 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-20 will-animate animate-fade-up">
+        <span class="text-[#bf953f] tracking-[0.3em] uppercase font-bold text-xs">Our Guiding Pillars</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 serif text-white">What <span class="gold-gradient-text italic font-normal">Drives</span> Us</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <!-- Mission -->
+        <div class="bg-black/40 border border-[#bf953f]/20 rounded-2xl p-10 backdrop-blur-md hover:border-[#bf953f]/60 transition-all duration-500 group will-animate animate-fade-up animate-delay-1">
+          <div class="w-16 h-16 bg-[#bf953f]/5 border border-[#bf953f]/30 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#bf953f]/10 group-hover:scale-105 transition-all duration-300">
+            <i class="fa-solid fa-bullseye text-2xl text-[#bf953f]"></i>
+          </div>
+          <h3 class="text-2xl font-bold serif text-white mb-4">Our Mission</h3>
+          <p class="text-gray-400 font-light leading-relaxed text-sm">
+            To redefine the short-let experience in Africa by providing meticulously curated living spaces that combine the privacy of a luxury residence with the impeccable service standards of a five-star boutique hotel.
+          </p>
+        </div>
+
+        <!-- Vision -->
+        <div class="bg-black/40 border border-[#bf953f]/20 rounded-2xl p-10 backdrop-blur-md hover:border-[#bf953f]/60 transition-all duration-500 group will-animate animate-fade-up animate-delay-2">
+          <div class="w-16 h-16 bg-[#bf953f]/5 border border-[#bf953f]/30 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#bf953f]/10 group-hover:scale-105 transition-all duration-300">
+            <i class="fa-solid fa-eye text-2xl text-[#bf953f]"></i>
+          </div>
+          <h3 class="text-2xl font-bold serif text-white mb-4">Our Vision</h3>
+          <p class="text-gray-400 font-light leading-relaxed text-sm">
+            To become the gold standard for luxury hospitality residences across Africa — a brand synonymous with trust, elegance, and uncompromising quality. We envision expanding into diplomatic capitals while retaining our custom personalized touch.
+          </p>
+        </div>
+
+        <!-- Core Values -->
+        <div class="bg-black/40 border border-[#bf953f]/20 rounded-2xl p-10 backdrop-blur-md hover:border-[#bf953f]/60 transition-all duration-500 group will-animate animate-fade-up animate-delay-3">
+          <div class="w-16 h-16 bg-[#bf953f]/5 border border-[#bf953f]/30 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#bf953f]/10 group-hover:scale-105 transition-all duration-300">
+            <i class="fa-solid fa-gem text-2xl text-[#bf953f]"></i>
+          </div>
+          <h3 class="text-2xl font-bold serif text-white mb-6">Our Core Values</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 text-gray-400 text-sm font-light">
+              <i class="fa-solid fa-circle-check text-[#bf953f] text-xs mt-1"></i>
+              <span><strong class="text-white font-medium block">Discretion</strong> Absolute privacy for every elite guest.</span>
+            </div>
+            <div class="flex items-start gap-3 text-gray-400 text-sm font-light">
+              <i class="fa-solid fa-circle-check text-[#bf953f] text-xs mt-1"></i>
+              <span><strong class="text-white font-medium block">Excellence</strong> Obsessive, uncompromising attention to details.</span>
+            </div>
+            <div class="flex items-start gap-3 text-gray-400 text-sm font-light">
+              <i class="fa-solid fa-circle-check text-[#bf953f] text-xs mt-1"></i>
+              <span><strong class="text-white font-medium block">Integrity</strong> Transparent, high-tier reliable service always.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS / TRACK RECORD ===== -->
+  <section class="py-24 max-w-7xl mx-auto px-6 will-animate animate-zoom-in">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-[#bf953f]/20">
+      <div class="space-y-2">
+        <span class="text-5xl lg:text-6xl font-extrabold gold-gradient-text serif tracking-tight">7+</span>
+        <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">Luxury Residences</p>
+      </div>
+      <div class="space-y-2">
+        <span class="text-5xl lg:text-6xl font-extrabold gold-gradient-text serif tracking-tight">100+</span>
+        <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">Satisfied Guests</p>
+      </div>
+      <div class="space-y-2">
+        <span class="text-5xl lg:text-6xl font-extrabold gold-gradient-text serif tracking-tight">100%</span>
+        <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">Power Reliability</p>
+      </div>
+      <div class="space-y-2">
+        <span class="text-5xl lg:text-6xl font-extrabold gold-gradient-text serif tracking-tight">24/7</span>
+        <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">Concierge Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT SETS US APART ===== -->
+  <section class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-20 will-animate animate-fade-up">
+      <span class="text-[#bf953f] tracking-[0.3em] uppercase font-bold text-xs">The Mya Difference</span>
+      <h2 class="text-4xl md:text-5xl font-bold mt-4 serif text-white">Why Our Guests <span class="gold-gradient-text italic font-normal">Choose Us</span></h2>
+      <p class="text-gray-400 mt-4 text-sm font-light max-w-lg mx-auto">Every element of the Mya experience is bespoke — tailored explicitly to exceed expectations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Card 1 -->
+      <div class="flex gap-6 bg-gradient-to-br from-white/[0.02] to-transparent border border-[#bf953f]/15 rounded-2xl p-8 hover:border-[#bf953f]/40 transition-all duration-300 group will-animate animate-fade-up">
+        <div class="flex-shrink-0">
+          <div class="w-14 h-14 bg-[#bf953f]/5 border border-[#bf953f]/20 rounded-xl flex items-center justify-center group-hover:bg-[#bf953f]/10 transition-colors">
+            <i class="fa-solid fa-map-pin text-xl text-[#bf953f]"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-white mb-2 tracking-wide">Prime Locations</h4>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">All our residences are strategically positioned in Abuja's most prestigious and secure districts — Maitama, Asokoro, and Wuse II — placing you minutes away from diplomatic enclaves and fine dining.</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="flex gap-6 bg-gradient-to-br from-white/[0.02] to-transparent border border-[#bf953f]/15 rounded-2xl p-8 hover:border-[#bf953f]/40 transition-all duration-300 group will-animate animate-fade-up">
+        <div class="flex-shrink-0">
+          <div class="w-14 h-14 bg-[#bf953f]/5 border border-[#bf953f]/20 rounded-xl flex items-center justify-center group-hover:bg-[#bf953f]/10 transition-colors">
+            <i class="fa-solid fa-shield-halved text-xl text-[#bf953f]"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-white mb-2 tracking-wide">Absolute Security</h4>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">From gated perimeters with 24/7 guard outposts to smart access locks and CCTV monitoring, we deploy layered security protocols that meet rigorous diplomatic standards.</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="flex gap-6 bg-gradient-to-br from-white/[0.02] to-transparent border border-[#bf953f]/15 rounded-2xl p-8 hover:border-[#bf953f]/40 transition-all duration-300 group will-animate animate-fade-up">
+        <div class="flex-shrink-0">
+          <div class="w-14 h-14 bg-[#bf953f]/5 border border-[#bf953f]/20 rounded-xl flex items-center justify-center group-hover:bg-[#bf953f]/10 transition-colors">
+            <i class="fa-solid fa-bolt text-xl text-[#bf953f]"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-white mb-2 tracking-wide">Zero Power Interruptions</h4>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">Industrial-grade inverter matrices and dedicated standby generators ensure 100% power reliability — a solid promise backed flawlessly by our track record since inception.</p>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="flex gap-6 bg-gradient-to-br from-white/[0.02] to-transparent border border-[#bf953f]/15 rounded-2xl p-8 hover:border-[#bf953f]/40 transition-all duration-300 group will-animate animate-fade-up">
+        <div class="flex-shrink-0">
+          <div class="w-14 h-14 bg-[#bf953f]/5 border border-[#bf953f]/20 rounded-xl flex items-center justify-center group-hover:bg-[#bf953f]/10 transition-colors">
+            <i class="fa-solid fa-bell-concierge text-xl text-[#bf953f]"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-white mb-2 tracking-wide">24/7 Concierge Excellence</h4>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">Our dedicated concierge team handles everything from airport transfers and private chef bookings to premium restaurant reservations — ensuring your stay is effortlessly seamless.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="relative py-32 border-t border-[#bf953f]/20 overflow-hidden bg-black">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#bf953f]/5 rounded-full blur-[125px] pointer-events-none"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10 will-animate animate-zoom-in">
+      <span class="text-[#bf953f] tracking-[0.3em] uppercase font-bold text-xs">Begin Your Mya Experience</span>
+      <h2 class="text-4xl md:text-6xl font-bold mt-6 serif leading-tight text-white">
+        Ready to Discover <br><span class="gold-gradient-text italic font-normal">Your Personal Sanctuary?</span>
+      </h2>
+      <p class="text-gray-400 mt-6 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+        Whether you're visiting Abuja for a diplomatic mission, corporate engagement, or a private retreat, Mya Homes & Suites is prepared to exceed your expectations.
+      </p>
+      <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6">
+        <a href="room.html" class="w-full sm:w-auto px-10 py-4 border border-[#bf953f] bg-gradient-to-r from-[#bf953f] to-[#b38728] hover:from-[#d4af37] hover:to-[#bf953f] text-black text-xs font-bold tracking-[0.2em] uppercase rounded-full shadow-xl shadow-[#bf953f]/10 hover:shadow-[#bf953f]/30 transition-all duration-300 flex items-center justify-center gap-2">
+          Explore Residences <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        <a href="https://wa.me/#" target="_blank" class="w-full sm:w-auto border border-gray-700 hover:border-[#bf953f]/60 hover:text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2 text-gray-300">
+          <i class="fa-brands fa-whatsapp text-sm text-[#bf953f]"></i> Chat With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-black border-t border-white/10 text-gray-400 pt-24 pb-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 relative z-10">
+      
+      <div class="md:col-span-5 space-y-6">
+        <a href="index.html" class="tracking-wider serif block">
+          <span class="text-2xl font-bold tracking-widest bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] bg-clip-text text-transparent">MYA</span>
+          <span class="text-white font-light text-[10px] tracking-[0.4em] block -mt-1 opacity-60">HOMES & SUITES</span>
+        </a>
+        <p class="text-sm leading-relaxed font-light opacity-70 max-w-sm">Curating premium lifestyle rentals and boutique hospitality experiences across prime locations in Abuja, Nigeria. Where luxury finds its home.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#bf953f] hover:text-[#bf953f] transition-colors"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/#" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#bf953f] hover:text-[#bf953f] transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#bf953f] hover:text-[#bf953f] transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-3">
+        <h5 class="text-white uppercase font-bold text-xs tracking-[0.2em] mb-6">Quick Links</h5>
+        <ul class="space-y-4 text-sm font-light">
+          <li><a href="about.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-[1px] bg-[#bf953f]"></span> Our Story</a></li>
+          <li><a href="room.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-[1px] bg-[#bf953f]"></span> Residences</a></li>
+          <li><a href="amenities.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-[1px] bg-[#bf953f]"></span> Amenities</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-[1px] bg-[#bf953f]"></span> Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="md:col-span-4 space-y-4">
+        <h5 class="text-white uppercase font-bold text-xs tracking-[0.2em] mb-6">Connect With Us</h5>
+        <p class="text-sm font-light flex items-center gap-3"><i class="fa-solid fa-location-dot text-[#bf953f] w-4"></i> Abuja, Nigeria</p>
+        <p class="text-sm font-light flex items-center gap-3"><i class="fa-regular fa-envelope text-[#bf953f] w-4"></i> reservations@myahomes.com</p>
+        <a href="tel:+2349019238653" target="_blank" class="mt-4 inline-flex items-center gap-2 bg-[#bf953f]/5 text-[#fcf6ba] hover:bg-[#bf953f]/10 font-medium px-6 py-3 rounded-full text-xs transition-all duration-300 border border-[#bf953f]/30">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Chat on WhatsApp
+        </a>
+      </div>
+      
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-[10px] font-medium tracking-[0.1em] uppercase opacity-40 relative z-10">
+      <p>&copy; 2026 Mya Homes & Suites. All Rights Reserved. Crafted with precision for the distinguished.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll animation initialization -->
+  <script>
+    (function() {
+      const animElements = document.querySelectorAll('.will-animate');
+      if (animElements.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-visible');
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        animElements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
+</body>
+</html>
