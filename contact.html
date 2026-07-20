@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Mya Homes & Suites - Luxury Residences Abuja</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts: Inter & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- core theme (given + refined) ----- */
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .gold-border {
+      border: 1px solid rgba(191, 149, 63, 0.35);
+    }
+    .gold-text {
+      color: #bf953f;
+    }
+    .bg-dark-charcoal {
+      background-color: #070707;
+    }
+    .bg-deep-black {
+      background-color: #020202;
+    }
+    .subtle-shadow {
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.85);
+    }
+    .hover-gold-glow {
+      transition: all 0.4s ease;
+    }
+    .hover-gold-glow:hover {
+      box-shadow: 0 0 18px rgba(191, 149, 63, 0.2);
+      border-color: rgba(191, 149, 63, 0.6);
+    }
+    .stat-divider {
+      background: linear-gradient(90deg, rgba(191,149,63,0) 0%, rgba(191,149,63,0.6) 50%, rgba(191,149,63,0) 100%);
+      height: 1px;
+    }
+    .texture-overlay {
+      background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .will-animate {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      will-change: opacity, transform;
+    }
+    .animate-fade-up { transform: translateY(28px); }
+    .animate-fade-down { transform: translateY(-24px); }
+    .animate-fade-left { transform: translateX(-32px); }
+    .animate-fade-right { transform: translateX(32px); }
+    .animate-zoom-in { transform: scale(0.96); }
+    .animate-visible {
+      opacity: 1;
+      transform: translate(0,0) scale(1);
+    }
+    .animate-delay-1 { transition-delay: 0.12s; }
+    .animate-delay-2 { transition-delay: 0.24s; }
+    .animate-delay-3 { transition-delay: 0.36s; }
+    .animate-delay-4 { transition-delay: 0.48s; }
+
+    .bg-soft-black { background-color: #0b0b0b; }
+    .border-gold-muted { border-color: rgba(191, 149, 63, 0.25); }
+    .text-gold-light { color: #d4af37; }
+    .hover-gold-text:hover { color: #bf953f; }
+    .btn-gold {
+      background: #bf953f;
+      color: #000;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      background: #d4af37;
+      box-shadow: 0 0 20px rgba(191, 149, 63, 0.3);
+    }
+    .glass-card {
+      background: rgba(7, 7, 7, 0.75);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .gold-glow-border {
+      border: 1px solid rgba(191, 149, 63, 0.3);
+    }
+    .gold-glow-border:hover {
+      border-color: #bf953f;
+      box-shadow: 0 0 24px rgba(191, 149, 63, 0.15);
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.92) 100%);
+    }
+    .stat-line {
+      background: linear-gradient(90deg, transparent, rgba(191,149,63,0.3), transparent);
+      height: 1px;
+    }
+
+    /* additional refinements */
+    .section-chip {
+      background: rgba(191, 149, 63, 0.08);
+      border: 1px solid rgba(191, 149, 63, 0.2);
+    }
+    .gold-glow-text {
+      text-shadow: 0 0 30px rgba(191, 149, 63, 0.15);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.8);
+    }
+    .border-gradient-gold {
+      border-image: linear-gradient(135deg, rgba(191,149,63,0.1), rgba(191,149,63,0.4), rgba(191,149,63,0.1)) 1;
+    }
+    .stat-counter {
+      font-variant-numeric: tabular-nums;
+    }
+    .glow-orb {
+      background: radial-gradient(circle at center, rgba(191,149,63,0.08) 0%, transparent 70%);
+    }
+    /* contact form styling */
+    .form-input {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(191, 149, 63, 0.2);
+      color: #fff;
+      transition: all 0.3s ease;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #bf953f;
+      box-shadow: 0 0 0 3px rgba(191, 149, 63, 0.15);
+      background: rgba(0,0,0,0.8);
+    }
+    .form-input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-deep-black text-gray-200 antialiased texture-overlay">
+
+  <!-- ===== HEADER ===== -->
+  <header class="fixed w-full z-50 bg-black/80 backdrop-blur-xl border-b border-gold-muted/40">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-semibold tracking-wider serif text-gold-light hover:text-gold-light/80 transition">MYA <span class="text-white font-light text-xs tracking-[0.3em] block -mt-1 opacity-80">HOMES & SUITES</span></a>
+      
+      <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+        <a href="index.html" class="hover:text-gold-light transition-colors relative py-2 group">Home <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="about.html" class="hover:text-gold-light transition-colors relative py-2 group">Our Story <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="rooms.html" class="hover:text-gold-light transition-colors relative py-2 group">Residences <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-light transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="contact.html" class="text-gold-light transition-colors relative py-2 group">Contact <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light"></span></a>
+      </nav>
+
+      <a href="https://wa.me/#" target="_blank" class="relative overflow-hidden btn-gold px-7 py-3 rounded-lg text-sm transition-all duration-300 tracking-wider uppercase shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 group flex items-center gap-2">
+        <span class="relative z-10 flex items-center gap-2">Book Now <i class="fa-brands fa-whatsapp group-hover:scale-110 transition-transform"></i></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO / PAGE INTRO ===== -->
+  <section class="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+    <div class="absolute inset-0 glow-orb opacity-40"></div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <span class="inline-block section-chip text-gold-light text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full gold-border">Connect With Us</span>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mt-6 serif leading-tight gold-glow-text">
+        Your <span class="text-gold-light italic">Sanctuary</span> Awaits
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-base md:text-lg font-light leading-relaxed">
+        Reach out to our dedicated team for reservations, inquiries, or to arrange a private viewing of our luxury residences.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="py-8 pb-20 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <!-- Contact Form -->
+      <div>
+        <div class="bg-black/40 gold-border rounded-2xl p-8 md:p-10 hover:border-gold-light/40 transition-all duration-500">
+          <h2 class="text-2xl md:text-3xl font-bold serif text-white mb-2">Send a Message</h2>
+          <p class="text-gray-400 text-sm font-light mb-8">Fill in the details and our concierge team will respond within 24 hours.</p>
+          
+          <form action="#" method="POST" class="space-y-6">
+            <div>
+              <label class="form-label" for="name">Full Name</label>
+              <input type="text" id="name" placeholder="John Doe" class="form-input" required />
+            </div>
+            <div>
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" class="form-input" required />
+            </div>
+            <div>
+              <label class="form-label" for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+234 800 000 0000" class="form-input" />
+            </div>
+            <div>
+              <label class="form-label" for="subject">Subject</label>
+              <select id="subject" class="form-input appearance-none">
+                <option value="" disabled selected>Select an option</option>
+                <option value="booking">Booking Inquiry</option>
+                <option value="viewing">Private Viewing</option>
+                <option value="corporate">Corporate Stay</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="message">Your Message</label>
+              <textarea id="message" rows="4" placeholder="Tell us about your requirements..." class="form-input resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-gold w-full py-4 rounded-lg text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-300">
+              <i class="fa-regular fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info & Quick Connect -->
+      <div class="space-y-8">
+        <!-- Quick Connect Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-black/40 gold-border rounded-2xl p-6 text-center hover:border-gold-light/40 transition-all duration-300 hover-lift">
+            <div class="w-14 h-14 bg-gold-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-brands fa-whatsapp text-2xl text-gold-light"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white">WhatsApp</h4>
+            <p class="text-gray-400 text-xs mt-1">Fastest response</p>
+            <a href="https://wa.me/#" target="_blank" class="inline-block mt-3 text-gold-light text-sm font-medium hover:underline">+234 901 923 8653</a>
+          </div>
+          <div class="bg-black/40 gold-border rounded-2xl p-6 text-center hover:border-gold-light/40 transition-all duration-300 hover-lift">
+            <div class="w-14 h-14 bg-gold-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-regular fa-envelope text-2xl text-gold-light"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white">Email</h4>
+            <p class="text-gray-400 text-xs mt-1">24/7 support</p>
+            <a href="mailto:reservations@myahomes.com" class="inline-block mt-3 text-gold-light text-sm font-medium hover:underline">reservations@myahomes.com</a>
+          </div>
+        </div>
+
+        <!-- Location & Hours -->
+        <div class="bg-black/40 gold-border rounded-2xl p-8 hover:border-gold-light/40 transition-all duration-500">
+          <h3 class="text-xl font-bold serif text-white mb-6">Visit Our Residences</h3>
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-gold-light/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-location-dot text-gold-light"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-white">Abuja, Nigeria</p>
+                <p class="text-gray-400 text-xs font-light">Maitama, Asokoro & Wuse II districts</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-gold-light/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-regular fa-clock text-gold-light"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-white">Concierge Hours</p>
+                <p class="text-gray-400 text-xs font-light">24 hours / 7 days a week</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-gold-light/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-phone text-gold-light"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-white">Phone</p>
+                <a href="tel:+2349019238653" class="text-gray-400 text-xs font-light hover:text-gold-light transition-colors">+234 901 923 8653</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="bg-black/40 gold-border rounded-2xl p-8 hover:border-gold-light/40 transition-all duration-500">
+          <h3 class="text-xl font-bold serif text-white mb-4">Connect With Us</h3>
+          <p class="text-gray-400 text-sm font-light mb-5">Follow us for updates, exclusive offers, and a glimpse into the Mya lifestyle.</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 rounded-full border border-gold-muted flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300 text-lg">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/#" target="_blank" class="w-12 h-12 rounded-full border border-gold-muted flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300 text-lg">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full border border-gold-muted flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300 text-lg">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full border border-gold-muted flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300 text-lg">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP / LOCATION HIGHLIGHT ===== -->
+  <section class="bg-dark-charcoal/50 py-16 border-t border-gold-muted/30">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-gold-light tracking-[0.2em] uppercase font-semibold text-xs">Prime Locations</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 serif">Find Your <span class="text-gold-light italic">Perfect</span> Stay</h2>
+        <p class="text-gray-400 mt-2 text-sm font-light">All our residences are situated in Abuja's most prestigious and secure districts.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-black/40 gold-border rounded-2xl p-6 text-center hover:border-gold-light/40 transition-all duration-300">
+          <i class="fa-solid fa-building text-2xl text-gold-light mb-3"></i>
+          <h4 class="font-semibold text-white">Maitama</h4>
+          <p class="text-gray-400 text-xs font-light">Diplomatic enclave</p>
+        </div>
+        <div class="bg-black/40 gold-border rounded-2xl p-6 text-center hover:border-gold-light/40 transition-all duration-300">
+          <i class="fa-solid fa-building text-2xl text-gold-light mb-3"></i>
+          <h4 class="font-semibold text-white">Asokoro</h4>
+          <p class="text-gray-400 text-xs font-light">Executive residences</p>
+        </div>
+        <div class="bg-black/40 gold-border rounded-2xl p-6 text-center hover:border-gold-light/40 transition-all duration-300">
+          <i class="fa-solid fa-building text-2xl text-gold-light mb-3"></i>
+          <h4 class="font-semibold text-white">Wuse II</h4>
+          <p class="text-gray-400 text-xs font-light">Commercial & dining hub</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-20 max-w-4xl mx-auto px-6 text-center">
+    <span class="text-gold-light tracking-[0.2em] uppercase font-semibold text-xs">Begin Your Mya Experience</span>
+    <h2 class="text-3xl md:text-5xl font-bold mt-4 serif leading-tight">
+      Ready to <span class="text-gold-light italic">Experience</span> Luxury?
+    </h2>
+    <p class="text-gray-400 mt-4 text-base font-light max-w-xl mx-auto">Contact our team to check availability, arrange a private viewing, or book your preferred suite.</p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="https://wa.me/#" target="_blank" class="btn-gold px-8 py-3.5 rounded-lg transition-all duration-300 tracking-wider uppercase shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp"></i> Book Now
+      </a>
+      <a href="rooms.html" class="border border-gray-600 hover:border-gold-light hover:text-gold-light px-8 py-3.5 rounded-lg transition-all duration-300 uppercase">View Residences</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-black border-t border-gold-muted/30 text-gray-400 pt-20 pb-10 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30 pointer-events-none">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-light/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-light/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
+      <div class="md:col-span-5">
+        <a href="index.html" class="text-2xl font-semibold tracking-wider serif text-gold-light inline-block">MYA <span class="text-white font-light text-xs tracking-[0.3em] block -mt-1 opacity-80">HOMES & SUITES</span></a>
+        <p class="mt-5 text-sm max-w-sm leading-relaxed font-light opacity-70">Curating premium lifestyle rentals and boutique hospitality experiences across prime locations in Abuja, Nigeria.</p>
+        <div class="flex space-x-4 mt-8">
+          <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/#" target="_blank" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="md:col-span-3">
+        <h5 class="text-white uppercase font-bold text-xs tracking-[0.2em] mb-6">Quick Links</h5>
+        <ul class="space-y-4 text-sm font-light">
+          <li><a href="about.html" class="hover:text-gold-light transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Our Story</a></li>
+          <li><a href="rooms.html" class="hover:text-gold-light transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Residences</a></li>
+          <li><a href="amenities.html" class="hover:text-gold-light transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Amenities</a></li>
+          <li><a href="contact.html" class="hover:text-gold-light transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-gold-light rounded-full"></span> Contact</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <h5 class="text-white uppercase font-bold text-xs tracking-[0.2em] mb-6">Connect With Us</h5>
+        <p class="text-sm font-light flex items-center gap-2 mb-3"><i class="fa-solid fa-location-dot text-gold-light w-4"></i> Abuja, Nigeria</p>
+        <p class="text-sm font-light flex items-center gap-2 mb-3"><i class="fa-regular fa-envelope text-gold-light w-4"></i> reservations@myahomes.com</p>
+        <a href="tel:+2349019238653" target="_blank" class="mt-4 inline-flex items-center gap-2 bg-gold-light/10 hover:bg-gold-light/20 text-gold-light font-semibold px-6 py-3 rounded-lg text-sm transition-all duration-300 gold-border">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-gold-muted/20 text-center text-xs font-light opacity-50 relative z-10">
+      <p>&copy; 2026 Mya Homes & Suites. All Rights Reserved. Crafted with precision for the distinguished.</p>
+    </div>
+  </footer>
+
+  <!-- minimal scroll animation -->
+  <script>
+    (function() {
+      const animElements = document.querySelectorAll('.will-animate');
+      if (animElements.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-visible');
+            }
+          });
+        }, { threshold: 0.25 });
+        animElements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
+</body>
+</html>
